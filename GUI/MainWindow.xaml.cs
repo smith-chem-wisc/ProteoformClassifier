@@ -266,17 +266,17 @@ namespace GUI
 
         private void UpdateExample()
         {
-            const string a = "M[Oxidation]AM";
-            const string b = "MAM[Oxidation]";
-            string thingy = "(MAM)[Oxidation]";
+            const string a = "XM[Oxidation]AMX";
+            const string b = "XMAM[Oxidation]X";
+            string thingy = "X(MAM)[Oxidation]X";
             if (ReadResults.GetProteoformFormat() == ProteoformFormat.Delimited)
             {
                 thingy = a + ReadResults.GetProteoformDelimiter().ToString() + b;
             }
             exampleTextBox.Text = thingy;
             exampleTextBoxv.Text = thingy;
-            exampleTextBox.FontSize = 10;
-            exampleTextBoxv.FontSize = 10;
+            exampleTextBox.FontSize = 9;
+            exampleTextBoxv.FontSize = 9;
         }
     }
 }
