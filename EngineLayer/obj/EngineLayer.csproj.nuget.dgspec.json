@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zrolf\\source\\repos\\ProteoformClassifier\\EngineLayer\\EngineLayer.csproj": {}
+    "E:\\PC_Software\\ProteoformClassifier\\EngineLayer\\EngineLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zrolf\\source\\repos\\ProteoformClassifier\\EngineLayer\\EngineLayer.csproj": {
+    "E:\\PC_Software\\ProteoformClassifier\\EngineLayer\\EngineLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zrolf\\source\\repos\\ProteoformClassifier\\EngineLayer\\EngineLayer.csproj",
+        "projectUniqueName": "E:\\PC_Software\\ProteoformClassifier\\EngineLayer\\EngineLayer.csproj",
         "projectName": "EngineLayer",
-        "projectPath": "C:\\Users\\zrolf\\source\\repos\\ProteoformClassifier\\EngineLayer\\EngineLayer.csproj",
+        "projectPath": "E:\\PC_Software\\ProteoformClassifier\\EngineLayer\\EngineLayer.csproj",
         "packagesPath": "C:\\Users\\zrolf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zrolf\\source\\repos\\ProteoformClassifier\\EngineLayer\\obj\\",
+        "outputPath": "E:\\PC_Software\\ProteoformClassifier\\EngineLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

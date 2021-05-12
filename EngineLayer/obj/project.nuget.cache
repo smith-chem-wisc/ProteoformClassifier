@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pNV99sC5SnpaFwc3w+puM+bNqcYd1ofOJljFqYXUBcjeqhGq0/39p5SdEPz4zGgdXOV+HIClYcWDiWmHhgyieQ==",
+  "dgSpecHash": "0bgZLBxGXzI2bjALnWZBgSU8yJoWoMxgdaZCKw+sPfH9LRN5M47uWmDf1Tfe5PnkKnfwIhsbYu5e2HteUQu0Dg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zrolf\\source\\repos\\ProteoformClassifier\\EngineLayer\\EngineLayer.csproj",
+  "projectFilePath": "E:\\PC_Software\\ProteoformClassifier\\EngineLayer\\EngineLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zrolf\\.nuget\\packages\\easy.common\\3.5.0\\easy.common.3.5.0.nupkg.sha512",
     "C:\\Users\\zrolf\\.nuget\\packages\\mathnet.numerics\\4.8.1\\mathnet.numerics.4.8.1.nupkg.sha512",
