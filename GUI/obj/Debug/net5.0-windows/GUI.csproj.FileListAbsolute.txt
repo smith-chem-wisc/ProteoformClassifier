@@ -1,8 +1,3 @@
-E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\GUI.csprojAssemblyReference.cache
-E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\MainWindow.g.cs
-E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\App.g.cs
-E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\GUI_MarkupCompile.cache
-E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\GUI_MarkupCompile.lref
 E:\PC_Software\ProteoformClassifier\GUI\bin\Debug\net5.0-windows\GUI.exe
 E:\PC_Software\ProteoformClassifier\GUI\bin\Debug\net5.0-windows\PC.ico
 E:\PC_Software\ProteoformClassifier\GUI\bin\Debug\net5.0-windows\GUI.deps.json
@@ -43,6 +38,11 @@ E:\PC_Software\ProteoformClassifier\GUI\bin\Debug\net5.0-windows\SharpLearning.O
 E:\PC_Software\ProteoformClassifier\GUI\bin\Debug\net5.0-windows\SharpLearning.RandomForest.dll
 E:\PC_Software\ProteoformClassifier\GUI\bin\Debug\net5.0-windows\EngineLayer.dll
 E:\PC_Software\ProteoformClassifier\GUI\bin\Debug\net5.0-windows\EngineLayer.pdb
+E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\GUI.csprojAssemblyReference.cache
+E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\MainWindow.g.cs
+E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\App.g.cs
+E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\GUI_MarkupCompile.cache
+E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\GUI_MarkupCompile.lref
 E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\App.baml
 E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\MainWindow.baml
 E:\PC_Software\ProteoformClassifier\GUI\obj\Debug\net5.0-windows\GUI.g.resources
