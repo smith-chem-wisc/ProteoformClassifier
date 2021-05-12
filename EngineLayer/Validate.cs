@@ -20,9 +20,7 @@ namespace EngineLayer
                 levelsToErrorMessages["2C"] = "Level 2C was not found. The program might not be transparent about amino acid sequence ambiguity.";
                 levelsToErrorMessages["2D"] = "Level 2D was not found. The program might not be transparent about gene ambiguity.";
                 //read in results, sort by scan
-                List<PrSM> allPrSMs = ReadResults.ReadSingleFile(resultFile).OrderBy(x=>x.Scan).ToList();
-                //List<string> levels = new List<string> { "1", "2A", "2B", "2C", "2D", "3", "4", "5" }; //each of these should be identified in the vignette
-                //List<string> scans = new List<string> { "2", "4", "6", "8", "10", "12", "14", "16" };
+                List<PrSM> allPrSMs = ReadResults.ReadSingleFile(resultFile).OrderBy(x => x.Scan).ToList();
                 List<string> levels = new List<string> { "1", "4", "2C", "5", "2B", "2D", "3", "2A" }; //each of these should be identified in the vignette
                 List<string> scans = new List<string> { "8", "45", "50", "54", "58", "64", "68", "88" };
                 Dictionary<string, bool> scanFoundDictionary = new Dictionary<string, bool>();
@@ -39,8 +37,8 @@ namespace EngineLayer
                 }
 
                 //iterate through each result, check if there's a header or not
-                int endingIndexModifier = allPrSMs.Count > levels.Count ? allPrSMs.Count-levels.Count : 0;
-                for (int i = 0; i < allPrSMs.Count- endingIndexModifier; i++)
+                int endingIndexModifier = allPrSMs.Count > levels.Count ? allPrSMs.Count - levels.Count : 0;
+                for (int i = 0; i < allPrSMs.Count - endingIndexModifier; i++)
                 {
                     PrSM prsm = allPrSMs[i];
 
@@ -80,9 +78,9 @@ namespace EngineLayer
                 }
                 else
                 {
-                    foreach(string failedLevel in failedLevels)
+                    foreach (string failedLevel in failedLevels)
                     {
-                        if(levelsToErrorMessages.TryGetValue(failedLevel, out string message))
+                        if (levelsToErrorMessages.TryGetValue(failedLevel, out string message))
                         {
                             WriteOutput.Notify(message);
                         }

@@ -104,45 +104,10 @@ namespace GUI
             dataGridProteoformResults.Items.Refresh();
         }
 
-        /// <summary>
-        /// Event fires when the "Open containing item" context menu item is clicked.
-        /// </summary>
-        private void OpenContainingFolder_Click(object sender, RoutedEventArgs e)
-        {
-            var path = GetPathOfItem(sender, e);
-            OpenFolder(System.IO.Path.GetDirectoryName(path));
-        }
-
-
-        /// <summary>
-        /// Opens a folder with the specified path.
-        /// </summary>
-        private void OpenFolder(string folderPath)
-        {
-            if (Directory.Exists(folderPath))
-            {
-                // open the directory
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
-                {
-                    FileName = folderPath,
-                    UseShellExecute = true,
-                    Verb = "open"
-                });
-            }
-            else
-            {
-                MessageBox.Show("Folder does not exist: " + folderPath);
-            }
-        }
-
-
         private string GetPathOfItem(object sender, RoutedEventArgs e)
         {
-            // right now this will only get one filepath... could change multiple if multi-selected
-            //var item = GetItemDataContext(sender, e).FirstOrDefault();
-
-            //    return item.FilePath;
-            return ""; //FIXME
+            DataForDataGrid item = (DataForDataGrid)sender;
+            return item.FilePath;
         }
 
         private void DeleteAll_Click(object sender, RoutedEventArgs e)
@@ -150,46 +115,6 @@ namespace GUI
             ValidationFilePath.Clear();
             ResultFilePaths.Clear();
             RefreshFileGrid();
-        }
-
-
-        /// <summary>
-        /// Deletes the selected item(s).
-        /// </summary>
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            //FIXME
-            //var item = GetItemDataContext(sender, e).FirstOrDefault();
-
-            //if (item == null)
-            //{
-            //    return;
-            //}
-
-            //if (item is PreRunTask)
-            //{
-            //    PreRunTasks.Remove(item as PreRunTask);
-            //    UpdateGuiOnPreRunChange();
-            //}
-            //else if (item is RawDataForDataGrid)
-            //{
-            //    foreach (var selectedFile in SelectedSpectraFiles.ToList())
-            //    {
-            //        SpectraFiles.Remove(selectedFile);
-            //    }
-
-            //    if (!SpectraFiles.Any())
-            //    {
-            //        OutputFolderTextBox.Text = string.Empty;
-            //    }
-            //}
-            //else if (item is ProteinDbForDataGrid)
-            //{
-            //    foreach (var selectedFile in SelectedProteinDatabaseFiles.ToList())
-            //    {
-            //        ProteinDatabases.Remove(selectedFile);
-            //    }
-            //}
         }
 
         private void AddProteoformResults_Click(object sender, RoutedEventArgs e)
@@ -213,16 +138,6 @@ namespace GUI
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             string path = e.Uri.ToString();
-            OpenFile(path);
-        }
-
-
-        /// <summary>
-        /// Event fires when the "Open file" context menu item is clicked.
-        /// </summary>
-        private void OpenFile_Click(object sender, RoutedEventArgs e)
-        {
-            var path = GetPathOfItem(sender, e);
             OpenFile(path);
         }
 
@@ -307,6 +222,7 @@ namespace GUI
             proteoformFormatDelimitedRadioButtonv.IsChecked = proteoformFormatDelimitedRadioButton.IsChecked;
             UpdateExample();
         }
+
         private void Delimited_Clickv(object sender, RoutedEventArgs e)
         {
             proteoformAndGeneDelimiterTextBoxv.IsEnabled = proteoformFormatDelimitedRadioButtonv.IsChecked.Value;

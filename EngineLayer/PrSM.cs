@@ -1,17 +1,15 @@
 ﻿using Proteomics;
 using Proteomics.ProteolyticDigestion;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace EngineLayer
 {
     public class PrSM
     {
         public string Scan { get; private set; }
-        public string[] Proteoforms {get; private set;}
+        public string[] Proteoforms { get; private set; }
         public string[] Genes { get; private set; }
         public string Level { get; private set; }
         public string Line { get; private set; }
@@ -24,7 +22,7 @@ namespace EngineLayer
         public PrSM(string line, string scan, string[] proteoforms, string[] genes)
         {
             Line = line;
-            Scan = scan;           
+            Scan = scan;
             Proteoforms = UnifyPtmAnnotation(proteoforms);
             Genes = genes;
             Level = ClassifyPrSM(string.Join('|', Proteoforms), string.Join('|', Genes));
@@ -49,39 +47,23 @@ namespace EngineLayer
             };
             for (int p = 0; p < proteoforms.Length; p++)
             {
-                //DEBUG
-                //starts with /
-                if (proteoforms[p][0].Equals('\\'))
-                { }
-                if (proteoforms[p][0].Equals('"'))
-                { }
-                if (proteoforms[p][0].Equals('\"'))
-                { }
-                //different number of brackets?
-                int numstart = proteoforms[p].Count(x => x.Equals('['));
-                int numend = proteoforms[p].Count(x => x.Equals(']'));
-                if (numstart != numend)
-                { }
-                else
+                string[] split = proteoforms[p].Split('['); //separate by ptms
+                string builder = split[0];
+                for (int ptmIndex = 1; ptmIndex < split.Length; ptmIndex++)
                 {
-                    string[] split = proteoforms[p].Split('['); //separate by ptms
-                    string builder = split[0];
-                    for (int ptmIndex = 1; ptmIndex < split.Length; ptmIndex++)
+                    string[] twoSplit = split[ptmIndex].Split(']');
+                    string ptm = twoSplit[0];
+                    for (int i = 0; i < substringsToSearch.Count; i++)
                     {
-                        string[] twoSplit = split[ptmIndex].Split(']');
-                        string ptm = twoSplit[0];
-                        for (int i = 0; i < substringsToSearch.Count; i++)
+                        if (ptm.Contains(substringsToSearch[i]))
                         {
-                            if (ptm.Contains(substringsToSearch[i]))
-                            {
-                                ptm = stringsToReplace[i];
-                                break;
-                            }
+                            ptm = stringsToReplace[i];
+                            break;
                         }
-                        builder += "[" + ptm + "]" + twoSplit[1];
                     }
-                    proteoforms[p] = builder;
+                    builder += "[" + ptm + "]" + twoSplit[1];
                 }
+                proteoforms[p] = builder;
             }
             return proteoforms;
         }
@@ -210,7 +192,6 @@ namespace EngineLayer
                     }
                 }
             }
-
             return ptmsToReturn;
         }
 
