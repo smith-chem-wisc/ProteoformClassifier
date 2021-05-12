@@ -1,8 +1,3 @@
-E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.csprojAssemblyReference.cache
-E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.GeneratedMSBuildEditorConfig.editorconfig
-E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.AssemblyInfoInputs.cache
-E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.AssemblyInfo.cs
-E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.csproj.CoreCompileInputs.cache
 E:\PC_Software\ProteoformClassifier\CMD\bin\Debug\net5.0\CMD.exe
 E:\PC_Software\ProteoformClassifier\CMD\bin\Debug\net5.0\CMD.deps.json
 E:\PC_Software\ProteoformClassifier\CMD\bin\Debug\net5.0\CMD.runtimeconfig.json
@@ -40,6 +35,11 @@ E:\PC_Software\ProteoformClassifier\CMD\bin\Debug\net5.0\SharpLearning.Optimizat
 E:\PC_Software\ProteoformClassifier\CMD\bin\Debug\net5.0\SharpLearning.RandomForest.dll
 E:\PC_Software\ProteoformClassifier\CMD\bin\Debug\net5.0\EngineLayer.dll
 E:\PC_Software\ProteoformClassifier\CMD\bin\Debug\net5.0\EngineLayer.pdb
+E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.csprojAssemblyReference.cache
+E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.GeneratedMSBuildEditorConfig.editorconfig
+E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.AssemblyInfoInputs.cache
+E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.AssemblyInfo.cs
+E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.csproj.CoreCompileInputs.cache
 E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.csproj.CopyComplete
 E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\CMD.dll
 E:\PC_Software\ProteoformClassifier\CMD\obj\Debug\net5.0\ref\CMD.dll

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EngineLayer
 {
@@ -21,7 +18,7 @@ namespace EngineLayer
             for (int fileIndex = 0; fileIndex < resultFiles.Count; fileIndex++)
             {
                 string currentFile = resultFiles[fileIndex];
-                WriteOutput.Notify("Reading "+ currentFile);
+                WriteOutput.Notify("Reading " + currentFile);
 
                 allPrSMs[fileIndex] = ReadSingleFile(currentFile);
             }
@@ -75,29 +72,29 @@ namespace EngineLayer
                             string ptm = ptmSplit[0] + "]";
                             if (ptm[0] == ('[')) //check that ptm is valid
                             {
-                                string[] splitSplitSplit = splitSplit[0].Split('['); 
-                                string builder = splitSplitSplit[splitSplitSplit.Length-1];//get sequence without modification
-                                for (int aa =0; aa<possibleAAs.Length; aa++)
+                                string[] splitSplitSplit = splitSplit[0].Split('[');
+                                string builder = splitSplitSplit[splitSplitSplit.Length - 1];//get sequence without modification
+                                for (int aa = 0; aa < possibleAAs.Length; aa++)
                                 {
                                     string builderAA = "";
 
-                                    for (int aaa=0; aaa<aa+1; aaa++)
+                                    for (int aaa = 0; aaa < aa + 1; aaa++)
                                     {
                                         builderAA += possibleAAs[aaa];
                                     }
                                     builderAA += ptm;
-                                    for (int aaa = aa+1; aaa < possibleAAs.Length; aaa++)
+                                    for (int aaa = aa + 1; aaa < possibleAAs.Length; aaa++)
                                     {
                                         builderAA += possibleAAs[aaa];
                                     }
                                     //finished this, can add it to the rest of the builder.
-                                    if(currentSeqs == 0) //if this is the first mod in the sequence
+                                    if (currentSeqs == 0) //if this is the first mod in the sequence
                                     {
                                         seqs.Add(builder + builderAA);
                                     }
                                     else
                                     {
-                                        for(int s=0; s<seqs.Count; s++)
+                                        for (int s = 0; s < seqs.Count; s++)
                                         {
                                             seqs[s] = seqs[s] + builder + builderAA;
                                         }
@@ -113,7 +110,7 @@ namespace EngineLayer
                     //add last bit of sequence to each seq
                     string[] finishSeqs = splitP[splitP.Length - 1].Split(']');
                     string finishSeq = finishSeqs[finishSeqs.Length - 1];
-                    if(seqs.Count==0)
+                    if (seqs.Count == 0)
                     {
                         seqs.Add(finishSeq);
                     }
@@ -127,7 +124,6 @@ namespace EngineLayer
                     prsmsToReturn.Add(new PrSM(l, line[0], seqs.ToArray(), line[2].Split(SequenceAndGeneDelimiter)));
                 }
             }
-
             return prsmsToReturn;
         }
 
@@ -135,14 +131,17 @@ namespace EngineLayer
         {
             ColumnDelimiter = c;
         }
+
         public static void ModifySequenceAndGeneDelimiter(char c)
         {
             SequenceAndGeneDelimiter = c;
         }
+
         public static void ModifyProteoformFormat(ProteoformFormat pf)
         {
             Format = pf;
         }
+
         public static ProteoformFormat GetProteoformFormat()
         {
             return Format;
@@ -152,6 +151,7 @@ namespace EngineLayer
         {
             return ColumnDelimiter;
         }
+
         public static char GetProteoformDelimiter()
         {
             return SequenceAndGeneDelimiter;
