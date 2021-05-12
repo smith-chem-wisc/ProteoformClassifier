@@ -13,7 +13,6 @@ E:\PC_Software\ProteoformClassifier\EngineLayer\bin\Debug\net5.0\EngineLayer.dep
 E:\PC_Software\ProteoformClassifier\EngineLayer\bin\Debug\net5.0\EngineLayer.dll
 E:\PC_Software\ProteoformClassifier\EngineLayer\bin\Debug\net5.0\ref\EngineLayer.dll
 E:\PC_Software\ProteoformClassifier\EngineLayer\bin\Debug\net5.0\EngineLayer.pdb
-E:\PC_Software\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.csprojAssemblyReference.cache
 E:\PC_Software\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.GeneratedMSBuildEditorConfig.editorconfig
 E:\PC_Software\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.AssemblyInfoInputs.cache
 E:\PC_Software\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.AssemblyInfo.cs

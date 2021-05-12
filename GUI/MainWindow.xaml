@@ -218,7 +218,11 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                         <LineBreak />
                         <LineBreak />
                         <LineBreak />
-                        Need help? Check out our wiki (TODO: hyperlink) or open an issue on our GitHub (TODO: hyperlink for issue and github)
+                        Need help? Check out our  <Hyperlink NavigateUri="https://github.com/smith-chem-wisc/ProteoformClassifier/wiki" RequestNavigate="Hyperlink_RequestNavigate">
+                            wiki
+                        </Hyperlink>  or open an <Hyperlink NavigateUri="https://github.com/smith-chem-wisc/ProteoformClassifier/issues" RequestNavigate="Hyperlink_RequestNavigate">
+                            issue
+                        </Hyperlink> on our GitHub
                     </TextBlock>
                 </Grid>
             </TabItem>
@@ -250,9 +254,11 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                     <!--Detail text-->
                     <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}">
                         This workflow validates that your proteoform identification software outputs enough information to accurately assign a proteoform-level classification. 
-                        Analyze the test files (TODO link files) with your proteoform identification software. 
+                        Analyze the  <Hyperlink NavigateUri="https://github.com/smith-chem-wisc/ProteoformClassifier/tree/main/Test/ValidationFiles" RequestNavigate="Hyperlink_RequestNavigate">
+                            test files
+                        </Hyperlink> with your proteoform identification software. 
                         Prepare the results from your software as a .tsv containing three columns: 
-                        1) the scan number of the PrSM, 2) the proteoform sequence(s) identified for that scan, and 3) the gene(s) corresponding those sequence(s).
+                        1) the scan number of the PrSM, 2) the proteoform sequence(s) identified for that scan, and 3) the gene(s) of origin corresponding to those sequence(s).
                     </TextBlock>
 
                     <!--Settings-->
@@ -372,7 +378,7 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                     <!--Detail text-->
                     <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}">
                         This workflow assigns a proteoform-level classification for each of your proteoform-spectrum matches. 
-                        Analyze the test files (TODO link files) with your proteoform identification software. 
+                        Analyze your data with your favorite proteoform identification software. 
                         Prepare the results from your software as a .tsv containing three columns: 
                         1) the scan number of the PrSM, 2) the proteoform sequence(s) identified for that scan, and 3) the gene(s) corresponding those sequence(s).
                     </TextBlock>

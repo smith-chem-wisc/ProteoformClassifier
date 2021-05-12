@@ -251,13 +251,13 @@ namespace GUI
                 var selectedItem = (TabItem)MainWindowTabControl.SelectedItem;
                 if (selectedItem.Header.Equals("Validate Input"))
                 {
-                    foreach(string file in files)
+                    foreach (string file in files)
                     {
                         ValidationFilePath.Clear();
                         ValidationFilePath.Add(new DataForDataGrid(file));
                     }
                 }
-                else if(selectedItem.Header.Equals("Classify PrSMs"))
+                else if (selectedItem.Header.Equals("Classify PrSMs"))
                 {
                     foreach (string file in files)
                     {
@@ -280,11 +280,11 @@ namespace GUI
 
         private void AnalyzeProteoformResults_Click(object sender, RoutedEventArgs e)
         {
-            if(ResultFilePaths.Count>0)
-            { 
-            ToggleButtons(false);
-            Classifier.ClassifyResultFiles(ResultFilePaths.Select(x => x.FilePath).ToList(), aggregateOutputCheckBox.IsChecked.Value);
-            ToggleButtons(true);
+            if (ResultFilePaths.Count > 0)
+            {
+                ToggleButtons(false);
+                Classifier.ClassifyResultFiles(ResultFilePaths.Select(x => x.FilePath).ToList(), aggregateOutputCheckBox.IsChecked.Value);
+                ToggleButtons(true);
             }
             else
             {
@@ -312,7 +312,7 @@ namespace GUI
             proteoformAndGeneDelimiterTextBoxv.IsEnabled = proteoformFormatDelimitedRadioButtonv.IsChecked.Value;
             ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButtonv.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
             proteoformAndGeneDelimiterTextBox.IsEnabled = proteoformFormatDelimitedRadioButtonv.IsChecked.Value;
-            proteoformFormatDelimitedRadioButton.IsChecked = proteoformFormatDelimitedRadioButtonv.IsChecked; 
+            proteoformFormatDelimitedRadioButton.IsChecked = proteoformFormatDelimitedRadioButtonv.IsChecked;
             UpdateExample();
         }
 
@@ -353,7 +353,7 @@ namespace GUI
             const string a = "M[Oxidation]AM";
             const string b = "MAM[Oxidation]";
             string thingy = "(MAM)[Oxidation]";
-            if(ReadResults.GetProteoformFormat()==ProteoformFormat.Delimited)
+            if (ReadResults.GetProteoformFormat() == ProteoformFormat.Delimited)
             {
                 thingy = a + ReadResults.GetProteoformDelimiter().ToString() + b;
             }
