@@ -278,5 +278,17 @@ namespace GUI
             exampleTextBox.FontSize = 9;
             exampleTextBoxv.FontSize = 9;
         }
+
+        private void ClearProteoformResults_Click(object sender, RoutedEventArgs e)
+        {
+            ResultFilePaths.Clear();
+            RefreshFileGrid();
+        }
+
+        private void ClearValidationResults_Click(object sender, RoutedEventArgs e)
+        {
+            ValidationFilePath.Clear();
+            RefreshFileGrid();
+        }
     }
 }
