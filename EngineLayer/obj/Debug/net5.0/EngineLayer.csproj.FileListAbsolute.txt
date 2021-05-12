@@ -1,0 +1,11 @@
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\bin\Debug\net5.0\EngineLayer.deps.json
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\bin\Debug\net5.0\EngineLayer.dll
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\bin\Debug\net5.0\ref\EngineLayer.dll
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\bin\Debug\net5.0\EngineLayer.pdb
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.AssemblyInfoInputs.cache
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.AssemblyInfo.cs
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.csproj.CoreCompileInputs.cache
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.dll
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\ref\EngineLayer.dll
+C:\Users\zrolf\source\repos\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.pdb
