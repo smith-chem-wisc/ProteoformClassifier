@@ -216,5 +216,11 @@ namespace EngineLayer
             }
             return false;
         }
+
+        ///Change classification level to a header
+        public void AssignAsHeader()
+        {
+            Level = "Classification";
+        }
     }
 }

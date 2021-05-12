@@ -10,6 +10,7 @@ namespace EngineLayer
         private static char ColumnDelimiter = '\t';
         private static char SequenceAndGeneDelimiter = '|';
         private static ProteoformFormat Format = ProteoformFormat.Delimited;
+        private static bool Header = true;
 
         public static List<PrSM>[] ReadAllFiles(List<string> resultFiles)
         {
@@ -30,8 +31,26 @@ namespace EngineLayer
             List<PrSM> prsmsToReturn = new List<PrSM>();
 
             string[] lines = File.ReadAllLines(file);
-            foreach (string l in lines)
+            int startIndex = 0;
+            if (Header)
             {
+                startIndex = 0;
+                //treat header like a proteoform for output
+                if (lines.Length > 0)
+                {
+                    string[] header = lines[0].Split(ColumnDelimiter);
+                    string[] emptyArray = new string[] { "" };
+                    string headerScan = header.Length > 0 ? header[0] : "";
+                    string[] headerSeq = header.Length > 1 ? new string[] { header[1] } : emptyArray;
+                    string[] headerGene = header.Length > 2 ? new string[] { header[2] } : emptyArray;
+                    PrSM headerPSM = new PrSM(lines[0] + "\tClassification", headerScan, headerSeq, headerGene);
+                    prsmsToReturn.Add(headerPSM);
+                }
+            }
+
+            for (;startIndex<lines.Length; startIndex++)
+            {
+                string l = lines[startIndex];
                 string[] line = l.Split(ColumnDelimiter);
                 if (line.Length < 3)
                 {
@@ -155,6 +174,11 @@ namespace EngineLayer
         public static char GetProteoformDelimiter()
         {
             return SequenceAndGeneDelimiter;
+        }
+
+        public static void ModifyHeader(bool header)
+        {
+            Header = header;
         }
     }
 }

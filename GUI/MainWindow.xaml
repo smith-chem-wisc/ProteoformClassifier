@@ -299,7 +299,7 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                                         </TextBlock>
                                     </TextBlock.ToolTip>
                                 </TextBlock>
-                                <CheckBox x:Name="HeaderCheckBoxv" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500">
+                                <CheckBox x:Name="HeaderCheckBoxv" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500" Click="Header_Clickv">
                                     <CheckBox.ToolTip>
                                         <TextBlock>
                                         Check the box if the input files contain a header row. Uncheck if they don't.
@@ -444,7 +444,7 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                                         </TextBlock>
                                     </TextBlock.ToolTip>
                                 </TextBlock>
-                                <CheckBox x:Name="HeaderCheckBox" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500">
+                                <CheckBox x:Name="HeaderCheckBox" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500" Click="Header_Click">
                                     <CheckBox.ToolTip>
                                         <TextBlock>
                                         Check the box if the input files contain a header row. Uncheck if they don't.

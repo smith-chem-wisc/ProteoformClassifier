@@ -16,7 +16,7 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string fileDialogFilter = "Proteoform Results(*.csv;*.tsv;*.txt)|*.csv;*.tsv;*.txt";
+        private string fileDialogFilter = "Proteoform Results(*.tsv;*.txt)|*.tsv;*.txt";
         public List<DataForDataGrid> ValidationFilePath = new List<DataForDataGrid>();
         public List<DataForDataGrid> ResultFilePaths = new List<DataForDataGrid>();
 
@@ -40,6 +40,8 @@ namespace GUI
             proteoformFormaParentheticalRadioButton.IsChecked = false;
             proteoformAndGeneDelimiterTextBoxv.Text = "|";
             proteoformAndGeneDelimiterTextBox.Text = "|";
+            HeaderCheckBox.IsChecked = true;
+            HeaderCheckBoxv.IsChecked = true;
             UpdateExample();
         }
 
@@ -289,6 +291,18 @@ namespace GUI
         {
             ValidationFilePath.Clear();
             RefreshFileGrid();
+        }
+
+        private void Header_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderCheckBoxv.IsChecked = HeaderCheckBox.IsChecked;
+            ReadResults.ModifyHeader(HeaderCheckBox.IsChecked.Value);
+        }
+
+        private void Header_Clickv(object sender, RoutedEventArgs e)
+        {
+            HeaderCheckBox.IsChecked = HeaderCheckBoxv.IsChecked;
+            ReadResults.ModifyHeader(HeaderCheckBox.IsChecked.Value);
         }
     }
 }
