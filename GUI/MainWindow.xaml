@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Drop="Window_Drop" AllowDrop="true" Background="{StaticResource BackgroundColor}" WindowStartupLocation="CenterScreen" MinHeight="400" 
-        MinWidth="800" Height="625" Width="1050">
+        MinWidth="800" Height="650" Width="1050">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -385,8 +385,8 @@
                     <!--Detail text-->
                     <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}">
                         This workflow assigns a proteoform-level classification for each of your proteoform-spectrum matches. 
-                        Analyze your data with your favorite proteoform identification software. 
-                        Prepare the results from your software as a .tsv containing three columns: 
+                        Analyze your data with your favorite proteoform identification software 
+                        and then format the results as a .tsv containing three columns: 
                         1) the scan number of the PrSM, 2) the proteoform sequence(s) identified for that scan, and 3) the gene(s) of origin corresponding to the sequence(s). This .tsv can then be analyzed 
                         by ProteoformClassifier.
                     </TextBlock>
