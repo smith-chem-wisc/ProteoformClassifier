@@ -10,7 +10,6 @@ namespace CMD
 {
     class Program
     {
-        private static bool InProgress;
         private static System.CodeDom.Compiler.IndentedTextWriter MyWriter = new System.CodeDom.Compiler.IndentedTextWriter(Console.Out, "\t");
         private const string WelcomeMessage = "Welcome to The Proteoform Classifier!";
         private static CommandLineSettings CommandLineSettings;
@@ -49,12 +48,16 @@ namespace CMD
 
             helpText.MaximumDisplayWidth = 300;
 
+            helpText.AddPostOptionsLine("Example usage (Classification): ");
+            helpText.AddPostOptionsLine("CMD.exe -r C:\\ResultsToClassify_1.tsv C:\\ResultsToClassify_1.tsv");
+            helpText.AddPostOptionsLine(Environment.NewLine);
+
             helpText.AddPostOptionsLine("Example usage (Validation): ");
             helpText.AddPostOptionsLine("CMD.exe -r C:\\ValidationResults.tsv -v");
             helpText.AddPostOptionsLine(Environment.NewLine);
 
-            helpText.AddPostOptionsLine("Example usage (Classification): ");
-            helpText.AddPostOptionsLine("CMD.exe -r C:\\ResultsToClassify_1.tsv C:\\ResultsToClassify_1.tsv");
+            helpText.AddPostOptionsLine("Example usage (Validation with all parameters): ");
+            helpText.AddPostOptionsLine("CMD.exe -r C:\\ValidationResults.tsv -v -a -c " + '"' + "," + '"' + " -s " + '"' + ";" + '"');
             helpText.AddPostOptionsLine(Environment.NewLine);
 
             Console.WriteLine(helpText);
