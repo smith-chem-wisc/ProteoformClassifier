@@ -20,7 +20,7 @@ This quick start guide will focus on GUI.zip.
 5. Drag and drop "Results.tsv" onto the GUI window. Press "Validate Software". If the output is transparent about ambiguity, then the Output Terminal at the bottom of the page will say "Success!". If not, it will provide error messages to assist you in determining which PrSMs and ambiguities are missing. 
 <img src ="https://user-images.githubusercontent.com/16883585/118176658-b5057c00-b3ff-11eb-88c8-3e88af541a39.png">
 
-6. After validating that your software is transparent about reporting ambiguity, you can classify output using the "Classify PrSMs" tab on the left side of the window. This module should appear similar to the "Validate Input" tab, but it accepts multiple input files and writes classified proteoform result files.
+6. After validating that your software is transparent about reporting ambiguity, you can classify output using the "Classify PrSMs" tab on the left side of the window. This module should appear similar to the "Validate Input" tab, but it accepts multiple input files and writes classified proteoform result files. NOTE: If you do not switch to the Classify PrSMs tab and attempt to run full dataset results on the Validate Software tab, you will get many useless error messages. The Validate Software tab is only for the [Validation.mzML](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Validation.mzML) data.
 <img src ="https://user-images.githubusercontent.com/16883585/118176863-f138dc80-b3ff-11eb-975b-c25d0febe3b2.png">
 
 7. The "Classify PrSMs" workflow produces two different output files: "ClassifiedResults" and "ClassifiedSummary".
