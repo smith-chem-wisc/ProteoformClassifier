@@ -219,18 +219,20 @@ namespace GUI
         private void Delimited_Click(object sender, RoutedEventArgs e)
         {
             proteoformAndGeneDelimiterTextBox.IsEnabled = proteoformFormatDelimitedRadioButton.IsChecked.Value;
-            ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButton.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
             proteoformAndGeneDelimiterTextBoxv.IsEnabled = proteoformFormatDelimitedRadioButton.IsChecked.Value;
+            ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButton.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
             proteoformFormatDelimitedRadioButtonv.IsChecked = proteoformFormatDelimitedRadioButton.IsChecked;
+            proteoformFormaParentheticalRadioButtonv.IsChecked = proteoformFormaParentheticalRadioButton.IsChecked;
             UpdateExample();
         }
 
         private void Delimited_Clickv(object sender, RoutedEventArgs e)
         {
             proteoformAndGeneDelimiterTextBoxv.IsEnabled = proteoformFormatDelimitedRadioButtonv.IsChecked.Value;
-            ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButtonv.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
             proteoformAndGeneDelimiterTextBox.IsEnabled = proteoformFormatDelimitedRadioButtonv.IsChecked.Value;
+            ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButtonv.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
             proteoformFormatDelimitedRadioButton.IsChecked = proteoformFormatDelimitedRadioButtonv.IsChecked;
+            proteoformFormaParentheticalRadioButton.IsChecked = proteoformFormaParentheticalRadioButtonv.IsChecked;
             UpdateExample();
         }
 
