@@ -12,7 +12,7 @@ namespace EngineLayer
         {
             try
             {
-                WriteOutput.Notify("Starting Validation of " + resultFile);
+                WriteOutput.Notify("Starting validation of " + resultFile);
                 List<string> failedLevels = new List<string>();
                 Dictionary<string, string> levelsToErrorMessages = GetLevelErrorMessages();
                 //read in results, sort by scan

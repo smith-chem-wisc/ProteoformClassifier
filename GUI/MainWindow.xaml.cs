@@ -162,8 +162,21 @@ namespace GUI
         private void Window_Drop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            List<string> validatedFiles = new List<string>();
 
             if (files != null)
+            {
+                foreach (string file in files)
+                {
+                    var filename = Path.GetFileName(file);
+                    var extension = Path.GetExtension(filename).ToLowerInvariant();
+                    if(extension.Equals(".txt")||extension.Equals(".tsv"))
+                    {
+                        validatedFiles.Add(file);
+                    }
+                }
+            }
+            if (validatedFiles.Count!=0)
             {
                 var selectedItem = (TabItem)MainWindowTabControl.SelectedItem;
                 if (selectedItem.Header.Equals("Validate Input"))
