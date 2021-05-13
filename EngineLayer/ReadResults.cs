@@ -50,13 +50,13 @@ namespace EngineLayer
                 }
             }
 
-            for (;startIndex<lines.Length; startIndex++)
+            for (; startIndex < lines.Length; startIndex++)
             {
                 string l = lines[startIndex];
                 string[] line = l.Split(ColumnDelimiter);
                 if (line.Length < 3)
                 {
-                    throw new Exception("The line " + l + " from the file " + file + " has fewer than 3 columns (scan#, sequence, gene) when using the delimiter '" + ColumnDelimiter + "'. Update your delimiter or check your result file.");
+                    throw new Exception("The line '" + l + "' from the file '" + file + "' has fewer than 3 columns (scan#, sequence, gene) when using the delimiter '" + ColumnDelimiter.ToString() + "'. Update your delimiter or check your result file.");
                 }
 
                 //remove any quotes... unclear what causes them during reading.
@@ -81,7 +81,7 @@ namespace EngineLayer
                         string[] splitSplit = splitP[p].Split('(');
                         if (splitSplit.Length != 2)
                         {
-                            throw new Exception("The line " + l + " from the file " + file + " has an unmatched ')' or nested parenthesis in its proteoform sequence '" + line[1] + ". Please check your input and try again.");
+                            throw new Exception("The line '" + l + "' from the file '" + file + "' has an unmatched ')' or nested parenthesis in its proteoform sequence '" + line[1] + "'. Please check your input and try again.");
                         }
                         else
                         {
@@ -124,7 +124,7 @@ namespace EngineLayer
                             }
                             else
                             {
-                                throw new Exception("The line " + l + " from the file " + file + " has a ')' that is not followed by a bracketed modification in its proteoform sequence '" + line[1] + ". Please check your input and try again.");
+                                throw new Exception("The line '" + l + "' from the file '" + file + "' has a ')' that is not followed by a bracketed modification in its proteoform sequence '" + line[1] + "'. Please check your input and try again.");
                             }
                         }
                     }
