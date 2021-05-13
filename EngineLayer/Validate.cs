@@ -14,11 +14,7 @@ namespace EngineLayer
             {
                 WriteOutput.Notify("Starting Validation of " + resultFile);
                 List<string> failedLevels = new List<string>();
-                Dictionary<string, string> levelsToErrorMessages = new Dictionary<string, string>();
-                levelsToErrorMessages["2A"] = "Level 2A was not found. The program might not be transparent about PTM localization.";
-                levelsToErrorMessages["2B"] = "Level 2B was not found. The program might not be transparent about PTM identification. Acetyl and Trimethyl were not both reported.";
-                levelsToErrorMessages["2C"] = "Level 2C was not found. The program might not be transparent about amino acid sequence ambiguity.";
-                levelsToErrorMessages["2D"] = "Level 2D was not found. The program might not be transparent about gene ambiguity.";
+                Dictionary<string, string> levelsToErrorMessages = GetLevelErrorMessages();
                 //read in results, sort by scan
                 List<PrSM> allPrSMs = ReadResults.ReadSingleFile(resultFile).OrderBy(x => x.Scan).ToList();
                 List<string> levels = new List<string> { "1", "4", "2C", "5", "2B", "2D", "3", "2A" }; //each of these should be identified in the vignette
@@ -95,6 +91,16 @@ namespace EngineLayer
                 WriteOutput.Notify("The run has been canceled.");
                 return 2;
             }
+        }
+
+        private static Dictionary<string, string> GetLevelErrorMessages()
+        {
+            Dictionary<string, string> levelsToErrorMessages = new Dictionary<string, string>();
+            levelsToErrorMessages["2A"] = "Level 2A was not found. The program might not be transparent about PTM localization.";
+            levelsToErrorMessages["2B"] = "Level 2B was not found. The program might not be transparent about PTM identification. Acetyl and Trimethyl were not both reported.";
+            levelsToErrorMessages["2C"] = "Level 2C was not found. The program might not be transparent about amino acid sequence ambiguity.";
+            levelsToErrorMessages["2D"] = "Level 2D was not found. The program might not be transparent about gene ambiguity.";
+            return levelsToErrorMessages;
         }
     }
 }

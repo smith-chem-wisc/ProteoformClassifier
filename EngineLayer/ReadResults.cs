@@ -38,12 +38,14 @@ namespace EngineLayer
                 //treat header like a proteoform for output
                 if (lines.Length > 0)
                 {
+                    startIndex++;
                     string[] header = lines[0].Split(ColumnDelimiter);
                     string[] emptyArray = new string[] { "" };
                     string headerScan = header.Length > 0 ? header[0] : "";
                     string[] headerSeq = header.Length > 1 ? new string[] { header[1] } : emptyArray;
                     string[] headerGene = header.Length > 2 ? new string[] { header[2] } : emptyArray;
-                    PrSM headerPSM = new PrSM(lines[0] + "\tClassification", headerScan, headerSeq, headerGene);
+                    PrSM headerPSM = new PrSM(lines[0], headerScan, headerSeq, headerGene);
+                    headerPSM.AssignAsHeader();
                     prsmsToReturn.Add(headerPSM);
                 }
             }
