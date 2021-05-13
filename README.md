@@ -9,10 +9,10 @@ Check out the [wiki page](https://github.com/smith-chem-wisc/ProteoformClassifie
 "GUI.zip" contains a helpful user-interface. If you're too cool for user-interfaces, you can instead download "CMD.zip" to run ProteoformClassifier from the command line.
 This quick start guide will focus on GUI.zip.
 
-2. Unzip "GUI.zip" and run "GUI.exe".
+2. Unzip "GUI.zip" and run "GUI.exe". You may be asked to install .Net
 <img src ="https://user-images.githubusercontent.com/16883585/118153916-6bf3fe80-b3e4-11eb-88e5-ff388cc1aee4.png">
 
-3. On the left side of the screen, click on "Validate Input".
+3. On the left side of the new GUI screen, click on "Validate Input".
 <img src ="https://user-images.githubusercontent.com/16883585/118154223-ca20e180-b3e4-11eb-8b01-715534420b3d.png">
 
 4. This page allows you to validate if your proteoform identification software reports ambiguous proteoform identifications. To validate your software, analyze the test file  [Validation.mzML](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Validation.mzML) with your identification software using the protein database [Validation.fasta](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Validation.fasta) and the parameters described in "[README_Parameters.txt](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/README_Parameters.txt)". These files can be downloaded by right-clicking on them and selecting "Save link as...". Once you've analyzed these data with your identification software, format your output into a .tsv file containing the scan number, proteoform sequence(s), and gene(s) of origin. An example .tsv produced from [MetaMorpheus](https://github.com/smith-chem-wisc/MetaMorpheus) output is available as "[Results.tsv](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Results.tsv)".
