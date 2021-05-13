@@ -25,7 +25,7 @@ This quick start guide will focus on GUI.zip.
 
 7. The "Classify PrSMs" workflow produces two different output files: "ClassifiedResults" and "ClassifiedSummary".
 
-8. "ClassifiedResults" contains all of the original input data and adds an additional fourth column containing the classification level.
+8. "ClassifiedResults" contains all of the original input data and adds an additional fourth column containing the classification level for each PrSM.
 <img src ="https://user-images.githubusercontent.com/16883585/118159005-816c2700-b3ea-11eb-90a2-dbe30c2a0528.png">
 
 9.  "ClassifiedSummary" contains a brief synopsis of how many PrSMs were identified at each level.
