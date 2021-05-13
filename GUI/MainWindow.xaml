@@ -68,6 +68,13 @@
                 <Setter Property="Foreground" Value="{StaticResource TextColor2}"/>
                 <Setter Property="FontSize" Value="12"/>
             </Style>
+            <Style x:Key="LessImportantButtonStyle" TargetType="Button">
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Width" Value="75"/>
+                <Setter Property="Background" Value="{StaticResource AccentColor}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextColor2}"/>
+                <Setter Property="FontSize" Value="12"/>
+            </Style>
 
             <!--Styling for borders-->
             <Style x:Key="x:BorderStyle" TargetType="Border">
@@ -170,17 +177,25 @@
                         <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
                         If the output is not transparent, then this program is unable to accurately classify proteoform identifications.  
                         <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
-                        To validate your software output, use your proteoform identification software to analyze the prepared .mzML 
+                        To validate your software output, use your proteoform identification software to analyze 
+                        <Hyperlink NavigateUri="https://github.com/smith-chem-wisc/ProteoformClassifier/tree/main/Test/ValidationFiles" RequestNavigate="Hyperlink_RequestNavigate">              
+                        the prepared .mzML
+                        </Hyperlink> 
                         <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
-(Validation.mzML) and .fasta (Validation.fasta). Convert the output to a three-column .tsv with columns of
+<Hyperlink NavigateUri="https://github.com/smith-chem-wisc/ProteoformClassifier/tree/main/Test/ValidationFiles" RequestNavigate="Hyperlink_RequestNavigate">                               
+                        (Validation.mzML) and .fasta (Validation.fasta).
+                        </Hyperlink>  
+                        Convert your proteoform results into a three-column .tsv with  
                         <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
-                        scan numbers, proteoform sequences, and genes. Separate multiple items within a single column with '|'.
+                        columns of scan numbers, proteoform sequences, and genes. Separate multiple items within a single column with '|'.
+                        <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
+                            You can then analyze this .tsv with ProteoformClassifier.
                         <LineBreak />
                         
                         <LineBreak /> <TabItem Visibility="Hidden"/> 
-                        ● <Bold FontWeight="UltraBold">Classify PrSMs:</Bold> <TabItem Visibility="Hidden"/>Classify your proteoform identifications. This program assigns an identification level for each proteoform-                    
+                        ● <Bold FontWeight="UltraBold">Classify PrSMs:</Bold> <TabItem Visibility="Hidden"/>Classify your proteoform identifications. This program assigns a classification level for each proteoform-spectrum                  
                         <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
-spectrum match (PrSM) and outputs a summary for all identifications.
+ match (PrSM) and outputs a summary for all identifications. The input file for classification is similar to validation.
                         <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
                         
                         <LineBreak />
@@ -209,7 +224,7 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                     <Grid.RowDefinitions>
                           <RowDefinition Height="50"/>
                         <RowDefinition Height="70"/>
-                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="100"/>
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="25"/>
@@ -226,7 +241,8 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                             test files
                         </Hyperlink> with your proteoform identification software. 
                         Prepare the results from your software as a .tsv containing three columns: 
-                        1) the scan number of the PrSM, 2) the proteoform sequence(s) identified for that scan, and 3) the gene(s) of origin corresponding to those sequence(s).
+                        1) the scan number of the PrSM, 2) the proteoform sequence(s) identified for that scan, and 3) the gene(s) of origin corresponding to the 
+                        sequence(s). This .tsv can then be analyzed by ProteoformClassifier.
                     </TextBlock>
 
                     <!--Settings-->
@@ -239,6 +255,7 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                             </Grid.ColumnDefinitions>
 
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
@@ -282,6 +299,23 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                                     </RadioButton.ToolTip>
                                 </RadioButton>
                             </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500">
+                        Input contains a header:
+                                    <TextBlock.ToolTip>
+                                        <TextBlock>
+                                        Check the box if the input files contain a header row. Uncheck if they don't.
+                                        </TextBlock>
+                                    </TextBlock.ToolTip>
+                                </TextBlock>
+                                <CheckBox x:Name="HeaderCheckBoxv" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500" Click="Header_Clickv">
+                                    <CheckBox.ToolTip>
+                                        <TextBlock>
+                                        Check the box if the input files contain a header row. Uncheck if they don't.
+                                        </TextBlock>
+                                    </CheckBox.ToolTip>
+                                </CheckBox>
+                            </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                                 <TextBlock Style="{StaticResource TextBlockStyle}" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500">
                         Proteoform and Gene Delimiter:
@@ -310,9 +344,13 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                         </Grid>
                     </StackPanel>
 
-                    <!--Button to add the result file-->
-                    <Button Name="AddValidationResults" Grid.Row="3" Content="+ADD VALIDATION RESULTS" Click="AddValidationResults_Click" HorizontalAlignment="Right" 
+                    <!--Buttons to add/clear the result file-->
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
+                        <Button Name="AddValidationResults"  Content="ADD VALIDATION RESULTS" Click="AddValidationResults_Click" HorizontalAlignment="Right" 
                             Style="{StaticResource ImportantButtonStyle}" Margin="0,0,10,0"/>
+                        <Button Name="ClearValidationResults" Content="CLEAR" Click="ClearValidationResults_Click" HorizontalAlignment="Right" 
+                            Style="{StaticResource LessImportantButtonStyle}" Margin="0,0,10,0"/>
+                    </StackPanel>
 
                     <!--The result file info-->
                     <DataGrid Name="dataGridValidationResults" Grid.Row="4" ItemsSource="{Binding}" Style="{StaticResource x:DataGridStyle}"
@@ -334,10 +372,11 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="70"/>
-                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="100"/>
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="25"/>
+                        <RowDefinition Height="5"/>
                     </Grid.RowDefinitions>
 
                     <!--Header label-->
@@ -348,7 +387,8 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                         This workflow assigns a proteoform-level classification for each of your proteoform-spectrum matches. 
                         Analyze your data with your favorite proteoform identification software. 
                         Prepare the results from your software as a .tsv containing three columns: 
-                        1) the scan number of the PrSM, 2) the proteoform sequence(s) identified for that scan, and 3) the gene(s) corresponding those sequence(s).
+                        1) the scan number of the PrSM, 2) the proteoform sequence(s) identified for that scan, and 3) the gene(s) of origin corresponding to the sequence(s). This .tsv can then be analyzed 
+                        by ProteoformClassifier.
                     </TextBlock>
 
                     <!--Settings-->
@@ -361,6 +401,7 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                             </Grid.ColumnDefinitions>
 
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
@@ -403,6 +444,23 @@ spectrum match (PrSM) and outputs a summary for all identifications.
                                         </TextBlock>
                                     </RadioButton.ToolTip>
                                 </RadioButton>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500">
+                        Input contains a header:
+                                    <TextBlock.ToolTip>
+                                        <TextBlock>
+                                        Check the box if the input files contain a header row. Uncheck if they don't.
+                                        </TextBlock>
+                                    </TextBlock.ToolTip>
+                                </TextBlock>
+                                <CheckBox x:Name="HeaderCheckBox" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500" Click="Header_Click">
+                                    <CheckBox.ToolTip>
+                                        <TextBlock>
+                                        Check the box if the input files contain a header row. Uncheck if they don't.
+                                        </TextBlock>
+                                    </CheckBox.ToolTip>
+                                </CheckBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                                 <TextBlock Style="{StaticResource TextBlockStyle}" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500">
@@ -463,9 +521,13 @@ spectrum match (PrSM) and outputs a summary for all identifications.
 
                         </Grid>
                     </StackPanel>
-                    <!--Button to add the result file-->
-                    <Button Name="AddProteoformResults" Grid.Row="3" Content="+ADD PROTEOFORM RESULTS" Click="AddProteoformResults_Click" HorizontalAlignment="Right" 
+                    <!--Buttons to add/clear the result file-->
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
+                        <Button Name="AddProteoformResults"  Content="ADD PROTEOFORM RESULTS" Click="AddProteoformResults_Click" HorizontalAlignment="Right" 
                             Style="{StaticResource ImportantButtonStyle}" Margin="0,0,10,0"/>
+                        <Button Name="ClearProteoformResults" Content="CLEAR" Click="ClearProteoformResults_Click" HorizontalAlignment="Right" 
+                            Style="{StaticResource LessImportantButtonStyle}" Margin="0,0,10,0"/>
+                    </StackPanel>
 
                     <!--The result file info-->
                     <DataGrid Name="dataGridProteoformResults" Grid.Row="4" ItemsSource="{Binding}" Style="{StaticResource x:DataGridStyle}"

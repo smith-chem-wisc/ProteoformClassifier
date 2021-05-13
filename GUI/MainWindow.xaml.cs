@@ -16,7 +16,7 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string fileDialogFilter = "Proteoform Results(*.csv;*.tsv;*.txt)|*.csv;*.tsv;*.txt";
+        private string fileDialogFilter = "Proteoform Results(*.tsv;*.txt)|*.tsv;*.txt";
         public List<DataForDataGrid> ValidationFilePath = new List<DataForDataGrid>();
         public List<DataForDataGrid> ResultFilePaths = new List<DataForDataGrid>();
 
@@ -40,6 +40,8 @@ namespace GUI
             proteoformFormaParentheticalRadioButton.IsChecked = false;
             proteoformAndGeneDelimiterTextBoxv.Text = "|";
             proteoformAndGeneDelimiterTextBox.Text = "|";
+            HeaderCheckBox.IsChecked = true;
+            HeaderCheckBoxv.IsChecked = true;
             UpdateExample();
         }
 
@@ -160,8 +162,21 @@ namespace GUI
         private void Window_Drop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            List<string> validatedFiles = new List<string>();
 
             if (files != null)
+            {
+                foreach (string file in files)
+                {
+                    var filename = Path.GetFileName(file);
+                    var extension = Path.GetExtension(filename).ToLowerInvariant();
+                    if(extension.Equals(".txt")||extension.Equals(".tsv"))
+                    {
+                        validatedFiles.Add(file);
+                    }
+                }
+            }
+            if (validatedFiles.Count!=0)
             {
                 var selectedItem = (TabItem)MainWindowTabControl.SelectedItem;
                 if (selectedItem.Header.Equals("Validate Input"))
@@ -217,18 +232,20 @@ namespace GUI
         private void Delimited_Click(object sender, RoutedEventArgs e)
         {
             proteoformAndGeneDelimiterTextBox.IsEnabled = proteoformFormatDelimitedRadioButton.IsChecked.Value;
-            ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButton.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
             proteoformAndGeneDelimiterTextBoxv.IsEnabled = proteoformFormatDelimitedRadioButton.IsChecked.Value;
+            ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButton.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
             proteoformFormatDelimitedRadioButtonv.IsChecked = proteoformFormatDelimitedRadioButton.IsChecked;
+            proteoformFormaParentheticalRadioButtonv.IsChecked = proteoformFormaParentheticalRadioButton.IsChecked;
             UpdateExample();
         }
 
         private void Delimited_Clickv(object sender, RoutedEventArgs e)
         {
             proteoformAndGeneDelimiterTextBoxv.IsEnabled = proteoformFormatDelimitedRadioButtonv.IsChecked.Value;
-            ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButtonv.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
             proteoformAndGeneDelimiterTextBox.IsEnabled = proteoformFormatDelimitedRadioButtonv.IsChecked.Value;
+            ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButtonv.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
             proteoformFormatDelimitedRadioButton.IsChecked = proteoformFormatDelimitedRadioButtonv.IsChecked;
+            proteoformFormaParentheticalRadioButton.IsChecked = proteoformFormaParentheticalRadioButtonv.IsChecked;
             UpdateExample();
         }
 
@@ -266,17 +283,41 @@ namespace GUI
 
         private void UpdateExample()
         {
-            const string a = "M[Oxidation]AM";
-            const string b = "MAM[Oxidation]";
-            string thingy = "(MAM)[Oxidation]";
+            const string a = "XM[Oxidation]AMX";
+            const string b = "XMAM[Oxidation]X";
+            string thingy = "X(MAM)[Oxidation]X";
             if (ReadResults.GetProteoformFormat() == ProteoformFormat.Delimited)
             {
                 thingy = a + ReadResults.GetProteoformDelimiter().ToString() + b;
             }
             exampleTextBox.Text = thingy;
             exampleTextBoxv.Text = thingy;
-            exampleTextBox.FontSize = 10;
-            exampleTextBoxv.FontSize = 10;
+            exampleTextBox.FontSize = 9;
+            exampleTextBoxv.FontSize = 9;
+        }
+
+        private void ClearProteoformResults_Click(object sender, RoutedEventArgs e)
+        {
+            ResultFilePaths.Clear();
+            RefreshFileGrid();
+        }
+
+        private void ClearValidationResults_Click(object sender, RoutedEventArgs e)
+        {
+            ValidationFilePath.Clear();
+            RefreshFileGrid();
+        }
+
+        private void Header_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderCheckBoxv.IsChecked = HeaderCheckBox.IsChecked;
+            ReadResults.ModifyHeader(HeaderCheckBox.IsChecked.Value);
+        }
+
+        private void Header_Clickv(object sender, RoutedEventArgs e)
+        {
+            HeaderCheckBox.IsChecked = HeaderCheckBoxv.IsChecked;
+            ReadResults.ModifyHeader(HeaderCheckBox.IsChecked.Value);
         }
     }
 }

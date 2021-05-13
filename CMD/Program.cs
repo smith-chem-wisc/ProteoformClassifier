@@ -75,6 +75,7 @@ namespace CMD
             try
             {
                 settings.ValidateCommandLineSettings();
+                settings.ImplementSettings();
                 CommandLineSettings = settings;
             }
             catch (Exception e)
