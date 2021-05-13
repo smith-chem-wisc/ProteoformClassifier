@@ -20,4 +20,3 @@ E:\PC_Software\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.csp
 E:\PC_Software\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.dll
 E:\PC_Software\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\ref\EngineLayer.dll
 E:\PC_Software\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.pdb
-E:\PC_Software\ProteoformClassifier\EngineLayer\obj\Debug\net5.0\EngineLayer.csprojAssemblyReference.cache
