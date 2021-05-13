@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CMD": {
+      "commandName": "Project",
+      "commandLineArgs": "-r E:\\Chemistry\\ProteoformClassification\\TestFileWithYeast\\MMValidation.tsv -a -s \",\""
+    }
+  }
+}
