@@ -179,7 +179,7 @@ namespace GUI
             if (validatedFiles.Count!=0)
             {
                 var selectedItem = (TabItem)MainWindowTabControl.SelectedItem;
-                if (selectedItem.Header.Equals("Validate Input"))
+                if (selectedItem.Header.Equals("Validate Software"))
                 {
                     foreach (string file in files)
                     {
