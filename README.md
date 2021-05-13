@@ -5,7 +5,7 @@ Check out the [wiki page](https://github.com/smith-chem-wisc/ProteoformClassifie
 
 ## Quick start guide
 
-1. Download the most recent version of ProteoformClassifier [here](https://github.com/smith-chem-wisc/ProteoformClassifier/releases)
+1. Download the most recent version of ProteoformClassifier [here](https://github.com/smith-chem-wisc/ProteoformClassifier/releases).
 "GUI.zip" contains a helpful user-interface. If you're too cool for user-interfaces, you can instead download "CMD.zip" to run ProteoformClassifier from the command line.
 This quick start guide will focus on GUI.zip.
 
