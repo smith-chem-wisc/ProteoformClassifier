@@ -24,7 +24,7 @@ This quick start guide will focus on GUI.zip.
 5. If you analyzed the Validation.mzML data file with your identification software, format your search output into a .tsv file containing the scan number, proteoform sequence(s), and gene(s) of origin. If you skipped step #4, you can download and use the formatted "[Results.tsv](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Results.tsv)" produced from [MetaMorpheus](https://github.com/smith-chem-wisc/MetaMorpheus) output. 
 
 
-6. Drag and drop formatted results ("Results.tsv") onto the GUI window. Press "Validate Software". If the output is transparent about ambiguity, then the Output Terminal at the bottom of the page will say "Success!". If not, it will provide error messages to assist you in determining which PrSMs and ambiguities are missing. 
+6. Drag and drop the formatted results ("Results.tsv") onto the GUI window. Press "Validate Software". If the output is transparent about ambiguity, then the Output Terminal at the bottom of the page will say "Success!". If not, it will provide error messages to assist you in determining which PrSMs and ambiguities are missing. 
 <img src ="https://user-images.githubusercontent.com/16883585/118176658-b5057c00-b3ff-11eb-88c8-3e88af541a39.png">
 
 
