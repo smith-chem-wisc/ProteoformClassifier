@@ -18,9 +18,7 @@ This quick start guide will focus on GUI.zip.
 <img src ="https://user-images.githubusercontent.com/16883585/118176571-943d2680-b3ff-11eb-9ae8-5b48d8aec2ac.png">
 
 
-4. OPTIONAL 
-
-To validate your top-down search software, analyze the test file  [Validation.mzML](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Validation.mzML) with your identification software using the protein database [Validation.fasta](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Validation.fasta) and the parameters described in "[README_Parameters.txt](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/README_Parameters.txt)". These files can be downloaded by right-clicking on them and selecting "Save link as...". 
+4. OPTIONAL: To validate your top-down search software, analyze the test file  [Validation.mzML](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Validation.mzML) with your identification software using the protein database [Validation.fasta](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Validation.fasta) and the parameters described in "[README_Parameters.txt](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/README_Parameters.txt)". These files can be downloaded by right-clicking on them and selecting "Save link as...". 
 
 
 5. If you analyzed the Validation.mzML data file with your identification software, format your search output into a .tsv file containing the scan number, proteoform sequence(s), and gene(s) of origin. If you skipped step #4, you can download and use the formatted "[Results.tsv](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Results.tsv)" produced from [MetaMorpheus](https://github.com/smith-chem-wisc/MetaMorpheus) output. 
