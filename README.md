@@ -18,8 +18,8 @@ This quick start guide will focus on GUI.zip.
 <img src ="https://user-images.githubusercontent.com/16883585/118176571-943d2680-b3ff-11eb-9ae8-5b48d8aec2ac.png">
 
 
-4. 
-### OPTIONAL 
+4. OPTIONAL 
+
 To validate your top-down search software, analyze the test file  [Validation.mzML](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Validation.mzML) with your identification software using the protein database [Validation.fasta](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/Validation.fasta) and the parameters described in "[README_Parameters.txt](https://raw.githubusercontent.com/smith-chem-wisc/ProteoformClassifier/main/Test/ValidationFiles/README_Parameters.txt)". These files can be downloaded by right-clicking on them and selecting "Save link as...". 
 
 
