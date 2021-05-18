@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Drop="Window_Drop" AllowDrop="true" Background="{StaticResource BackgroundColor}" WindowStartupLocation="CenterScreen" MinHeight="400" 
-        MinWidth="800" Height="600" Width="1050">
+        MinWidth="800" Height="650" Width="1050">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -173,28 +173,28 @@
                                                 <LineBreak />
 
                         <LineBreak /> <TabItem Visibility="Hidden"/> 
-                        ● <Bold FontWeight="UltraBold">Validate Input:</Bold> <TabItem Visibility="Hidden"/> Validate that your proteoform identification software produces output that is transparent about ambiguity.                       
-                        <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
+                        ● <Bold FontWeight="UltraBold">Validate Software:</Bold> <TabItem Visibility="Hidden"/> Validate that your proteoform identification software produces output that is transparent about ambiguity.                       
+                        <LineBreak /><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
                         If the output is not transparent, then this program is unable to accurately classify proteoform identifications.  
-                        <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
+                        <LineBreak /><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
                         To validate your software output, use your proteoform identification software to analyze 
                         <Hyperlink NavigateUri="https://github.com/smith-chem-wisc/ProteoformClassifier/tree/main/Test/ValidationFiles" RequestNavigate="Hyperlink_RequestNavigate">              
                         the prepared .mzML
                         </Hyperlink> 
-                        <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
+                        <LineBreak /><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
 <Hyperlink NavigateUri="https://github.com/smith-chem-wisc/ProteoformClassifier/tree/main/Test/ValidationFiles" RequestNavigate="Hyperlink_RequestNavigate">                               
                         (Validation.mzML) and .fasta (Validation.fasta).
                         </Hyperlink>  
                         Convert your proteoform results into a three-column .tsv with  
-                        <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
-                        columns of scan numbers, proteoform sequences, and genes. Separate multiple items within a single column with '|'.
-                        <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
-                            You can then analyze this .tsv with ProteoformClassifier.
+                        <LineBreak /><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
+                        columns of scan numbers, proteoform sequences, and genes. Separate multiple items within a single column 
+                        <LineBreak /><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
+                        with '|'. You can then analyze this .tsv with ProteoformClassifier.
                         <LineBreak />
                         
                         <LineBreak /> <TabItem Visibility="Hidden"/> 
-                        ● <Bold FontWeight="UltraBold">Classify PrSMs:</Bold> <TabItem Visibility="Hidden"/>Classify your proteoform identifications. This program assigns a classification level for each proteoform-spectrum                  
-                        <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
+                        ● <Bold FontWeight="UltraBold">Classify PrSMs:</Bold> <TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/>Classify your proteoform identifications. This program assigns a classification level for each proteoform-spectrum                  
+                        <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
  match (PrSM) and outputs a summary for all identifications. The input file for classification is similar to validation.
                         <LineBreak /><TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> <TabItem Visibility="Hidden"/> 
                         
@@ -219,7 +219,7 @@
             </TabItem>
 
             <!--Validate tab-->
-            <TabItem Name="ValidateTab" Header="Validate Input" TabIndex="0" Style="{StaticResource TabItemStyle}">
+            <TabItem Name="ValidateTab" Header="Validate Software" TabIndex="0" Style="{StaticResource TabItemStyle}">
                 <Grid Style="{StaticResource PageGridStyle}">
                     <Grid.RowDefinitions>
                           <RowDefinition Height="50"/>
@@ -232,7 +232,7 @@
                     </Grid.RowDefinitions>
 
                     <!--Header label-->
-                    <Label Content="Validate Input" Grid.Row="0" Style="{StaticResource HeaderLabelStyle}" />
+                    <Label Content="Validate Software" Grid.Row="0" Style="{StaticResource HeaderLabelStyle}" />
 
                     <!--Detail text-->
                     <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}">
@@ -357,11 +357,11 @@
                               ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="File" Binding="{Binding FileName, Mode=OneWay}" Width="250" />
-                            <DataGridTextColumn Header="File Path" Binding="{Binding FilePath, Mode=OneWay}" Width="200" />
+                            <DataGridTextColumn Header="File Path" Binding="{Binding FilePath, Mode=OneWay}" Width="1*" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <!--Button to add the result file-->
-                    <Button Name="AnalyzeValidationResults" Grid.Row="5" Content="VALIDATE RESULTS" Click="AnalyzeValidationResults_Click" HorizontalAlignment="Center" 
+                    <Button Name="AnalyzeValidationResults" Grid.Row="5" Content="VALIDATE SOFTWARE" Click="AnalyzeValidationResults_Click" HorizontalAlignment="Center" 
                             Style="{StaticResource ImportantButtonStyle}" Margin="0,0,10,0"/>
                 </Grid>
             </TabItem>
@@ -385,8 +385,8 @@
                     <!--Detail text-->
                     <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}">
                         This workflow assigns a proteoform-level classification for each of your proteoform-spectrum matches. 
-                        Analyze your data with your favorite proteoform identification software. 
-                        Prepare the results from your software as a .tsv containing three columns: 
+                        Analyze your data with your favorite proteoform identification software 
+                        and then format the results as a .tsv containing three columns: 
                         1) the scan number of the PrSM, 2) the proteoform sequence(s) identified for that scan, and 3) the gene(s) of origin corresponding to the sequence(s). This .tsv can then be analyzed 
                         by ProteoformClassifier.
                     </TextBlock>
@@ -534,7 +534,7 @@
                               ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="File" Binding="{Binding FileName, Mode=OneWay}" Width="250" />
-                            <DataGridTextColumn Header="File Path" Binding="{Binding FilePath, Mode=OneWay}" Width="200" />
+                            <DataGridTextColumn Header="File Path" Binding="{Binding FilePath, Mode=OneWay}" Width="1*" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <!--Button to add the result file-->
@@ -554,7 +554,7 @@
             <StackPanel Grid.Column="1" Background="{StaticResource BackgroundColor}" Margin="1,0,0,0">
                 <TextBlock>Output Terminal:</TextBlock>
                 <RichTextBox x:Name="notificationsTextBox" VerticalScrollBarVisibility="Visible" IsReadOnly="True" 
-                                 Background="Transparent" Foreground="{StaticResource TextColor1}" Height="100" BorderThickness="1" FlowDirection="LeftToRight">
+                                 Background="Transparent" Foreground="{StaticResource TextColor1}" Height="150" BorderThickness="1" FlowDirection="LeftToRight">
                     <RichTextBox.Resources>
                         <Style TargetType="{x:Type Paragraph}">
                             <Setter Property="Margin" Value="0" />
