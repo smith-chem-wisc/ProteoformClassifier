@@ -357,11 +357,11 @@
                               ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="File" Binding="{Binding FileName, Mode=OneWay}" Width="250" />
-                            <DataGridTextColumn Header="File Path" Binding="{Binding FilePath, Mode=OneWay}" Width="200" />
+                            <DataGridTextColumn Header="File Path" Binding="{Binding FilePath, Mode=OneWay}" Width="1*" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <!--Button to add the result file-->
-                    <Button Name="AnalyzeValidationResults" Grid.Row="5" Content="VALIDATE RESULTS" Click="AnalyzeValidationResults_Click" HorizontalAlignment="Center" 
+                    <Button Name="AnalyzeValidationResults" Grid.Row="5" Content="VALIDATE SOFTWARE" Click="AnalyzeValidationResults_Click" HorizontalAlignment="Center" 
                             Style="{StaticResource ImportantButtonStyle}" Margin="0,0,10,0"/>
                 </Grid>
             </TabItem>
@@ -534,7 +534,7 @@
                               ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="File" Binding="{Binding FileName, Mode=OneWay}" Width="250" />
-                            <DataGridTextColumn Header="File Path" Binding="{Binding FilePath, Mode=OneWay}" Width="200" />
+                            <DataGridTextColumn Header="File Path" Binding="{Binding FilePath, Mode=OneWay}" Width="1*" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <!--Button to add the result file-->

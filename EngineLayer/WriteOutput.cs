@@ -57,6 +57,23 @@ namespace EngineLayer
             summaryOutput.Add("Total PrSMs" + columnDelimiter + prsmsForThisFile.Count().ToString());
             summaryOutput.Add("Fraction of PrSMs with Ambiguity" + columnDelimiter + (prsmsWithAmbiguity * 1d / prsmsForThisFile.Count()).ToString());
             File.WriteAllLines(summaryOutputPath, summaryOutput);
+
+            //write classification level key
+            List<string> key = new List<string>
+            {
+                "This file exists to explain what each of the proteoform ambiguity levels means.",
+                "",
+                "Classification Level\tDescription",
+                "1\tNo sources of ambiguity",
+                "2A\tAmbiguity in PTM localization",
+                "2B\tAmbiguity in PTM identification",
+                "2C\tAmbiguity in sequence",
+                "2D\tAmbiguity in gene of origin",
+                "3\tTwo sources of ambiguity",
+                "4\tThree sources of ambiguity",
+                "5\tFour sources of ambiguity"
+            };
+            File.WriteAllLines(Path.Combine(Path.GetDirectoryName(filenameWithoutExtension),"ClassificationLevel_Key.txt"), key);
         }
 
         public static void Notify(string s)
