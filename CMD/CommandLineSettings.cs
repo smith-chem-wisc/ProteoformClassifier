@@ -20,8 +20,8 @@ namespace CMD
         [Option('h', HelpText = "[Optional] Use if a header row is not present in the result file(s)")]
         public bool NoHeader {get;set;}
 
-        [Option('p', HelpText ="[Optional] Use if parenthetical annotation is used for ambiguity (e.g. X(MAM)[Oxidation]X instead of XM[Oxidation]AMX|XMAM[Oxidation]X")]
-        public bool Parenthetical { get; set; }
+        [Option('n', HelpText = "[Optional] Accepts 'p' for parenthetical or 'm' for multiple rows. Pipe format expected if p or m are not specified.  Pipe format: XM[Oxidation]AMX|XMAM[Oxidation]X. Parenthetical format: X(MAM)[Oxidation]X. Multiple row format gives each possible proteoform a separate row with the same scan number."
+        public char AmbiguityNotation { get; set; }
 
         [Option('s', HelpText = "[Optional] Proteoform sequence/Gene delimiter")]
         public char SequenceDelimiter { get; set; }
@@ -41,19 +41,24 @@ namespace CMD
 
         public void ImplementSettings()
         {
-            if (ColumnDelimiter != 0) 
+            if (ColumnDelimiter != 0)
             {
                 ReadResults.ModifyColumnDelimiter(ColumnDelimiter);
             }
-            if(NoHeader)
+            if (NoHeader)
             {
                 ReadResults.ModifyHeader(false);
             }
-            if(Parenthetical)
+            char format = char.ToLower(AmbiguityNotation);
+            if (format == 'p')
             {
                 ReadResults.ModifyProteoformFormat(ProteoformFormat.Parenthetical);
             }
-            if(SequenceDelimiter!=0)
+            else if (format == 'm')
+            {
+                ReadResults.ModifyProteoformFormat(ProteoformFormat.MultipleRows);
+            }
+            if (SequenceDelimiter != 0)
             {
                 ReadResults.ModifySequenceAndGeneDelimiter(SequenceDelimiter);
             }

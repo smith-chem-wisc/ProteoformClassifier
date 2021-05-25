@@ -233,9 +233,10 @@ namespace GUI
         {
             proteoformAndGeneDelimiterTextBox.IsEnabled = proteoformFormatDelimitedRadioButton.IsChecked.Value;
             proteoformAndGeneDelimiterTextBoxv.IsEnabled = proteoformFormatDelimitedRadioButton.IsChecked.Value;
-            ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButton.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
+            ReadResults.ModifyProteoformFormat(GetSelectedAmbiguityFormat(false));
             proteoformFormatDelimitedRadioButtonv.IsChecked = proteoformFormatDelimitedRadioButton.IsChecked;
             proteoformFormaParentheticalRadioButtonv.IsChecked = proteoformFormaParentheticalRadioButton.IsChecked;
+            proteoformFormatMultiRowRadioButtonv.IsChecked = proteoformFormatMultiRowRadioButton.IsChecked;
             UpdateExample();
         }
 
@@ -243,10 +244,45 @@ namespace GUI
         {
             proteoformAndGeneDelimiterTextBoxv.IsEnabled = proteoformFormatDelimitedRadioButtonv.IsChecked.Value;
             proteoformAndGeneDelimiterTextBox.IsEnabled = proteoformFormatDelimitedRadioButtonv.IsChecked.Value;
-            ReadResults.ModifyProteoformFormat(proteoformFormatDelimitedRadioButtonv.IsChecked.Value ? ProteoformFormat.Delimited : ProteoformFormat.Parenthetical);
+            ReadResults.ModifyProteoformFormat(GetSelectedAmbiguityFormat(true));
             proteoformFormatDelimitedRadioButton.IsChecked = proteoformFormatDelimitedRadioButtonv.IsChecked;
             proteoformFormaParentheticalRadioButton.IsChecked = proteoformFormaParentheticalRadioButtonv.IsChecked;
+            proteoformFormatMultiRowRadioButton.IsChecked = proteoformFormatMultiRowRadioButtonv.IsChecked;
             UpdateExample();
+        }
+
+        private ProteoformFormat GetSelectedAmbiguityFormat(bool validation)
+        {
+            if(validation)
+            {
+                if (proteoformFormatDelimitedRadioButtonv.IsChecked.Value)
+                {
+                    return ProteoformFormat.Delimited;
+                }
+                else if (proteoformFormaParentheticalRadioButtonv.IsChecked.Value)
+                {
+                    return ProteoformFormat.Parenthetical;
+                }
+                else //if(proteoformFormatMultiRowRadioButtonv.IsChecked.Value)
+                {
+                    return ProteoformFormat.MultipleRows;
+                } 
+            }
+            else //classification
+            {
+                if (proteoformFormatDelimitedRadioButton.IsChecked.Value)
+                {
+                    return ProteoformFormat.Delimited;
+                }
+                else if (proteoformFormaParentheticalRadioButton.IsChecked.Value)
+                {
+                    return ProteoformFormat.Parenthetical;
+                }
+                else //if(proteoformFormatMultiRowRadioButton.IsChecked.Value)
+                {
+                    return ProteoformFormat.MultipleRows;
+                }
+            }
         }
 
         private void Delimiter_TextChange(object sender, TextChangedEventArgs e)
@@ -285,10 +321,14 @@ namespace GUI
         {
             const string a = "XM[Oxidation]AMX";
             const string b = "XMAM[Oxidation]X";
-            string thingy = "X(MAM)[Oxidation]X";
+            string thingy = "XM[Oxidation]AMX";
             if (ReadResults.GetProteoformFormat() == ProteoformFormat.Delimited)
             {
                 thingy = a + ReadResults.GetProteoformDelimiter().ToString() + b;
+            }
+            else if (ReadResults.GetProteoformFormat() == ProteoformFormat.Parenthetical)
+            {
+                thingy = "X(MAM)[Oxidation]X";
             }
             exampleTextBox.Text = thingy;
             exampleTextBoxv.Text = thingy;
