@@ -239,5 +239,10 @@ namespace EngineLayer
         {
             Header = header;
         }
+
+        public static bool HeaderExists()
+        {
+            return Header;
+        }
     }
 }

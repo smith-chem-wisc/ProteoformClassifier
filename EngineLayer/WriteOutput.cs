@@ -52,10 +52,19 @@ namespace EngineLayer
                 summaryOutput.Add(level + columnDelimiter + prsmsForThisFile.Count(x => x.Level.Equals(level)).ToString());
             }
 
+            //get counts
             int prsmsWithAmbiguity = prsmsForThisFile.Count(x => !x.Level.Equals("1"));
+            int totalPrSMs = prsmsForThisFile.Count;
+            //remove header from counts if applicable
+            if (ReadResults.HeaderExists())
+            {
+                prsmsWithAmbiguity--;
+                totalPrSMs--;
+            }
+
             summaryOutput.Add("PrSMs with Ambiguity" + columnDelimiter + prsmsWithAmbiguity.ToString());
-            summaryOutput.Add("Total PrSMs" + columnDelimiter + prsmsForThisFile.Count().ToString());
-            summaryOutput.Add("Fraction of PrSMs with Ambiguity" + columnDelimiter + (prsmsWithAmbiguity * 1d / prsmsForThisFile.Count()).ToString());
+            summaryOutput.Add("Total PrSMs" + columnDelimiter + totalPrSMs.ToString());
+            summaryOutput.Add("Fraction of PrSMs with Ambiguity" + columnDelimiter + (prsmsWithAmbiguity * 1d / totalPrSMs).ToString());
             File.WriteAllLines(summaryOutputPath, summaryOutput);
 
             //write classification level key
@@ -73,7 +82,7 @@ namespace EngineLayer
                 "4\tThree sources of ambiguity",
                 "5\tFour sources of ambiguity"
             };
-            File.WriteAllLines(Path.Combine(Path.GetDirectoryName(filenameWithoutExtension),"ClassificationLevel_Key.txt"), key);
+            File.WriteAllLines(Path.Combine(Path.GetDirectoryName(filenameWithoutExtension), "ClassificationLevel_Key.txt"), key);
         }
 
         public static void Notify(string s)

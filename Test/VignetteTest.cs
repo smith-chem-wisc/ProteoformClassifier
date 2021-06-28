@@ -25,12 +25,23 @@ namespace Test
         public void ClassificationTest()
         {
             string validationResults = Path.Combine(TestContext.CurrentContext.TestDirectory, "ValidationFiles", "Results.tsv");
+            ReadResults.ModifyHeader(true);
             int returnCode = Classifier.ClassifyResultFiles(new List<string> { validationResults }, false);
 
+            //check no errors
             Assert.IsTrue(returnCode == 0);
+
+            //check that header isn't reported as a PrSM
+            string classifiedSummaryPath = Path.Combine(TestContext.CurrentContext.TestDirectory, "ValidationFiles", "Results_ClassifiedSummary.tsv");
+            string[] summaryLines = File.ReadAllLines(classifiedSummaryPath);
+            //check num ambiguous PrSMs
+            Assert.AreEqual(summaryLines[9], "PrSMs with Ambiguity\t7");
+            //check num PrSMs
+            Assert.AreEqual(summaryLines[10], "Total PrSMs\t8");
+
         }
 
-        [Test] 
+        [Test]
         public void AmbiguityEdgeCaseTest()
         {
             List<string> lines = new List<string>
