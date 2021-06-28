@@ -301,6 +301,23 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0">
                                 <TextBlock Style="{StaticResource TextBlockStyle}" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500">
+                        Proteoform Ambiguity is Multi-Row:    
+                                    <TextBlock.ToolTip>
+                                        <TextBlock>
+                                        All possible proteoform sequences for a scan are shown with parenthesis
+                                        </TextBlock>
+                                    </TextBlock.ToolTip>
+                                </TextBlock>
+                                <RadioButton x:Name="proteoformFormatMultiRowRadioButtonv" ToolTipService.ShowDuration="999999" Margin="16,0,0,0" ToolTipService.InitialShowDelay="500" Click="Delimited_Clickv" GroupName="Ambiguityv">
+                                    <RadioButton.ToolTip>
+                                        <TextBlock>
+                                        All possible proteoform sequences for a scan are shown as multiple unique rows. Scan numbers must be specified in the first column and scores in the fourth column.
+                                        </TextBlock>
+                                    </RadioButton.ToolTip>
+                                </RadioButton>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500">
                         Input contains a header:
                                     <TextBlock.ToolTip>
                                         <TextBlock>
@@ -446,6 +463,23 @@
                                 </RadioButton>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500">
+                        Proteoform Ambiguity is Multi-Row:
+                                    <TextBlock.ToolTip>
+                                        <TextBlock>
+                                        All possible proteoform sequences for a scan are shown with parenthesis
+                                        </TextBlock>
+                                    </TextBlock.ToolTip>
+                                </TextBlock>
+                                <RadioButton x:Name="proteoformFormatMultiRowRadioButton" ToolTipService.ShowDuration="999999" Margin="16,0,0,0" ToolTipService.InitialShowDelay="500" Click="Delimited_Click" GroupName="Ambiguity">
+                                    <RadioButton.ToolTip>
+                                        <TextBlock>
+                                        All possible proteoform sequences for a scan are shown as multiple unique rows. Scan numbers must be specified in the first column and scores in the fourth column.
+                                        </TextBlock>
+                                    </RadioButton.ToolTip>
+                                </RadioButton>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
                                 <TextBlock Style="{StaticResource TextBlockStyle}" ToolTipService.ShowDuration="999999" ToolTipService.InitialShowDelay="500">
                         Input contains a header:
                                     <TextBlock.ToolTip>

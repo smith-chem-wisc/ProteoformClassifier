@@ -25,7 +25,19 @@ namespace EngineLayer
             Scan = scan;
             Proteoforms = UnifyPtmAnnotation(proteoforms);
             Genes = genes;
-            Level = ClassifyPrSM(string.Join('|', Proteoforms), string.Join('|', Genes));
+
+            //remove pipes so we can add pipes for level
+            RemovePipes(Proteoforms);
+            RemovePipes(Genes);
+            Level = ProteoformLevelClassifier.ClassifyPrSM(string.Join('|', Proteoforms), string.Join('|', Genes));
+        }
+
+        private void RemovePipes(string[] items)
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                items[i] = items[i].Replace("|", "");
+            }
         }
 
         public string[] UnifyPtmAnnotation(string[] proteoforms)
@@ -66,83 +78,6 @@ namespace EngineLayer
                 proteoforms[p] = builder;
             }
             return proteoforms;
-        }
-
-        public string ClassifyPrSM(string fullSequenceString, string geneString)
-        {
-            //separate delimited input
-            string[] sequences = fullSequenceString.Split('|');
-            string[] genes = geneString.Split('|');
-
-
-            //determine sequence ambiguity
-            string firstBaseSequence = PeptideWithSetModifications.GetBaseSequenceFromFullSequence(sequences[0]).ToUpper(); //get first sequence with modifications removed
-            bool sequenceIdentified = true; //check if there are any ambiguous amino acids (i.e. B, J, X, Z)
-            //for every other sequence reported
-            if (sequenceIdentified) //if there weren't any unknown amino acids reported.
-            {
-                for (int i = 1; i < sequences.Length; i++)
-                {
-                    //if the unmodified sequences don't match, then there's sequence ambiguity
-                    if (!firstBaseSequence.Equals(PeptideWithSetModifications.GetBaseSequenceFromFullSequence(sequences[i]).ToUpper()))
-                    {
-                        sequenceIdentified = false;
-                        break;
-                    }
-                }
-            }
-
-
-            //determine PTM localization and identification
-            List<(int index, string ptm)> firstPTMsSortedByIndex = GetPTMs(sequences[0]); //get ptms from the first sequence reported
-            List<string> firstPTMsSortedByPTM = firstPTMsSortedByIndex.Select(x => x.ptm).OrderBy(x => x).ToList(); //sort ptms alphabetically
-            //check if there are unknown mass shifts
-            bool ptmsIdentified = !PtmsContainUnknownMassShifts(firstPTMsSortedByPTM);
-            bool ptmsLocalized = true; //assume these are localized unless we determine otherwise
-            //for every other sequence reported
-            for (int seqIndex = 1; seqIndex < sequences.Length; seqIndex++)
-            {
-                List<(int index, string ptm)> currentPTMsSortedByIndex = GetPTMs(sequences[seqIndex]); //get ptms from this sequence
-                List<string> currentPTMsSortedByPTM = currentPTMsSortedByIndex.Select(x => x.ptm).OrderBy(x => x).ToList(); //sort ptms alphabetically
-
-                //are number of PTMs the same?
-                if (firstPTMsSortedByIndex.Count == currentPTMsSortedByIndex.Count)
-                {
-                    //check localization (are indexes conserved?)
-                    for (int i = 0; i < firstPTMsSortedByIndex.Count; i++)
-                    {
-                        if (firstPTMsSortedByIndex[i].index != currentPTMsSortedByIndex[i].index)
-                        {
-                            ptmsLocalized = false;
-                            break;
-                        }
-                    }
-                    //check PTMs
-                    for (int i = 0; i < firstPTMsSortedByPTM.Count; i++)
-                    {
-                        if (!firstPTMsSortedByPTM[i].Equals(currentPTMsSortedByPTM[i]))
-                        {
-                            ptmsIdentified = false;
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    ptmsIdentified = false;
-                    ptmsLocalized = false;
-                }
-            }
-
-
-            //determine gene ambiguity
-            bool geneIdentified = genes.Length == 1;
-
-            A = ptmsLocalized;
-            B = ptmsIdentified;
-            C = sequenceIdentified;
-            D = geneIdentified;
-            return ProteoformLevelClassifier.GetProteoformClassification(ptmsLocalized, ptmsIdentified, sequenceIdentified, geneIdentified);
         }
 
         /// <summary>
