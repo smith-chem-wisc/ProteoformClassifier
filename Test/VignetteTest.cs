@@ -31,7 +31,7 @@ namespace Test
         }
 
         [Test] 
-        public void Debug()
+        public void AmbiguityEdgeCaseTest()
         {
             List<string> lines = new List<string>
             {
