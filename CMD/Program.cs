@@ -62,7 +62,7 @@ namespace CMD
 
             Console.WriteLine(helpText);
 
-            if (errs.Any())
+            if (errs.Any(x => x.Tag != ErrorType.HelpRequestedError))
             {
                 errorCode = 1;
             }
